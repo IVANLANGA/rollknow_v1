@@ -1,0 +1,37 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #0E1125;
+  --color-primary-pink: #EC4899;
+  --color-primary-orange: #F59E0B;
+
+  --font-family-outfit: 'Outfit', sans-serif;
+}
+
+@layer utilities {
+  .glass-card {
+    @apply bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl;
+  }
+
+  .btn-primary-gradient {
+    @apply bg-gradient-to-r from-pink-500 to-orange-500 text-white font-semibold hover:opacity-90 transition-opacity;
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-orange-500;
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-[var(--color-background)] text-gray-400 font-[family-name:--font-family-outfit] antialiased selection:bg-pink-500 selection:text-white;
+    font-feature-settings: 'kern' 1, 'liga' 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tight;
+  }
+}
